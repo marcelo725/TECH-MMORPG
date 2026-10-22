@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <title>Tech MMORPG — Sua jornada começa</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #0b1020;
+      color: #f4f7ff;
+    }
+    header {
+      padding: 22px 18px;
+      background: #111a30;
+      border-bottom: 1px solid #293654;
+    }
+    .logo { color: #71f5d0; font-weight: 900; letter-spacing: 2px; }
+    main { max-width: 850px; margin: auto; padding: 20px; }
+    .hero, .panel {
+      background: #121c33;
+      border: 1px solid #293654;
+      border-radius: 18px;
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+    .hero {
+      background: linear-gradient(135deg, #16294a, #251847);
+    }
+    h1 { font-size: clamp(28px, 7vw, 46px); margin: 10px 0; }
+    p { line-height: 1.6; color: #bdc9e2; }
+    .tag { color: #71f5d0; font-weight: 700; }
+    .stats { display: flex; gap: 12px; flex-wrap: wrap; }
+    .stat {
+      background: #0b1020; border-radius: 12px;
+      padding: 14px; flex: 1; min-width: 110px;
+    }
+    .number { display: block; font-size: 25px; font-weight: 800; }
+    .bar { height: 10px; background: #293654; border-radius: 20px; overflow: hidden; }
+    .fill { height: 100%; width: 0; background: #71f5d0; transition: width .3s; }
+    .quest {
+      display: flex; gap: 12px; align-items: center;
+      padding: 14px 0; border-bottom: 1px solid #293654;
+    }
+    .quest:last-child { border: 0; }
+    .quest-info { flex: 1; }
+    .quest-info strong { display: block; }
+    .quest-info small { color: #bdc9e2; }
+    button {
+      background: #71f5d0; color: #08111f;
+      font-weight: 800; border: 0; border-radius: 10px;
+      padding: 11px 14px; cursor: pointer;
+    }
+    button:disabled { background: #44516a; color: #fff; }
+    footer { text-align: center; padding: 25px; color: #8190ad; }
+  </style>
+</head>
+<body>
+  <header><div class="logo">⚔ TECH MMORPG</div></header>
+  <main>
+    <section class="hero">
+      <span class="tag">◆ PORTAL DO APRENDIZ</span>
+      <h1>Sua jornada começa agora.</h1>
+      <p>Aprenda programação, sistemas operacionais, Git, redes e cibersegurança através de missões e desafios.</p>
+      <button onclick="document.getElementById('missoes').scrollIntoView({behavior:'smooth'})">
+        Explorar missões ↓
+      </button>
+    </section>
+
+    <section class="panel">
+      <h2>🧙 Perfil do aventureiro</h2>
+      <div class="stats">
+        <div class="stat">Nível <span class="number" id="nivel">1</span></div>
+        <div class="stat">XP total <span class="number" id="xp">0</span></div>
+        <div class="stat">Missões <span class="number" id="total">0/3</span></div>
+      </div>
+      <p id="proximo">Próximo nível: 100 XP</p>
+      <div class="bar"><div class="fill" id="barra"></div></div>
+    </section>
+
+    <section class="panel" id="missoes">
+      <h2>📜 Quadro de missões</h2>
+      <p>Conclua uma missão para ganhar experiência. Seu progresso fica salvo neste navegador.</p>
+      <div class="quest">
+        <div class="quest-info">
+          <strong>🐣 Primeiros passos</strong>
+          <small>Conheça a proposta da aventura · 25 XP</small>
+        </div>
+        <button onclick="concluir(0,this)">Iniciar</button>
+      </div>
+      <div class="quest">
+        <div class="quest-info">
+          <strong>💻 Recruta da programação</strong>
+          <small>Prepare-se para aprender lógica · 25 XP</small>
+        </div>
+        <button onclick="concluir(1,this)">Iniciar</button>
+      </div>
+      <div class="quest">
+        <div class="quest-info">
+          <strong>🛡️ Guardião digital</strong>
+          <small>Descubra o mundo da tecnologia · 50 XP</small>
+        </div>
+        <button onclick="concluir(2,this)">Iniciar</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>🌍 Mundos que vamos explorar</h2>
+      <p>🐍 Python · 🌐 HTML e CSS · ⚡ JavaScript · 🗄️ SQL</p>
+      <p>🔧 Git e GitHub · 🐧 Linux · 🌐 Redes · 🛡️ Cibersegurança ética</p>
+      <p>Novos mundos, aulas e desafios serão adicionados ao projeto.</p>
+    </section>
+  </main>
+  <footer>TECH MMORPG · Aprenda. Evolua. Conquiste.</footer>
+
+  <script>
+    let dados;
+    try {
+      dados = JSON.parse(localStorage.getItem("tech-rpg-progresso")) || {
+        xp: 0, feitas: []
+      };
+    } catch {
+      dados = { xp: 0, feitas: [] };
+    }
+
+    function atualizar() {
+      const nivel = Math.floor(dados.xp / 100) + 1;
+      document.getElementById("nivel").textContent = nivel;
+      document.getElementById("xp").textContent = dados.xp;
+      document.getElementById("total").textContent = dados.feitas.length + "/3";
+      document.getElementById("proximo").textContent =
+        "Próximo nível: " + (nivel * 100) + " XP";
+      document.getElementById("barra").style.width =
+        (dados.xp % 100) + "%";
+
+      document.querySelectorAll(".quest button").forEach((botao, i) => {
+        if (dados.feitas.includes(i)) {
+          botao.textContent = "Concluída ✓";
+          botao.disabled = true;
+        }
+      });
+    }
+
+    function concluir(id, botao) {
+      if (dados.feitas.includes(id)) return;
+      const recompensas = [25, 25, 50];
+      dados.feitas.push(id);
+      dados.xp += recompensas[id];
+      localStorage.setItem("tech-rpg-progresso", JSON.stringify(dados));
+      atualizar();
+    }
+
+    atualizar();
+  </script>
+</body>
+</html>
