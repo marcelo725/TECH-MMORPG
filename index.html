@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#09090f">
+  <meta name="description" content="AI Tools Hub: ferramentas gratuitas para criar, estudar e empreender com inteligência artificial.">
+  <title>AI Tools Hub | Seu poder com IA</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #09090f;
+      color: #f5f5ff;
+    }
+
+    header {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #242435;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .logo span { color: #a78bfa; }
+
+    .hero {
+      padding: 65px 20px 45px;
+      text-align: center;
+      background: radial-gradient(ellipse at top, #29204d, #09090f 70%);
+    }
+
+    .tag {
+      color: #c4b5fd;
+      border: 1px solid #55417d;
+      border-radius: 30px;
+      padding: 8px 13px;
+      font-size: 12px;
+    }
+
+    h1 {
+      font-size: clamp(34px, 8vw, 55px);
+      line-height: 1.1;
+      margin: 25px auto 16px;
+      max-width: 700px;
+    }
+
+    h1 span {
+      color: #a78bfa;
+    }
+
+    .hero p {
+      color: #b7b6c9;
+      max-width: 520px;
+      margin: 0 auto 25px;
+      line-height: 1.7;
+    }
+
+    .search {
+      display: block;
+      width: 100%;
+      max-width: 500px;
+      margin: 25px auto 0;
+      padding: 15px;
+      border: 1px solid #38334f;
+      border-radius: 12px;
+      background: #151520;
+      color: white;
+      font-size: 16px;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 35px 20px 60px;
+    }
+
+    .section-title {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    .muted { color: #a6a5ba; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+      margin-top: 25px;
+    }
+
+    .card {
+      padding: 23px;
+      background: #13131e;
+      border: 1px solid #29293a;
+      border-radius: 16px;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #8b5cf6;
+    }
+
+    .emoji { font-size: 32px; }
+
+    .card h3 { margin-bottom: 8px; }
+
+    .card p {
+      color: #aaa9bd;
+      font-size: 14px;
+      line-height: 1.6;
+      min-height: 45px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 9px;
+      padding: 12px 16px;
+      background: #8b5cf6;
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:hover { background: #7041dc; }
+
+    .tool {
+      margin-top: 35px;
+      padding: 24px;
+      border: 1px solid #39304f;
+      border-radius: 16px;
+      background: #15131f;
+    }
+
+    textarea, select {
+      width: 100%;
+      padding: 13px;
+      margin: 10px 0;
+      background: #0d0d16;
+      color: white;
+      border: 1px solid #38334f;
+      border-radius: 9px;
+      font: inherit;
+    }
+
+    textarea { min-height: 100px; resize: vertical; }
+
+    #result {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      line-height: 1.7;
+      margin-top: 18px;
+      color: #e3ddff;
+    }
+
+    .hidden { display: none; }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid #242435;
+      color: #89889e;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">AI Tools <span>Hub.</span></div>
+    <span style="font-size:12px;color:#c4b5fd">VERSÃO 1.0</span>
+  </header>
+
+  <section class="hero">
+    <span class="tag">✦ SUA CENTRAL DE CRIATIVIDADE</span>
+    <h1>Suas ideias.<br>Seu futuro com <span>IA.</span></h1>
+    <p>Descubra ferramentas para criar conteúdo, desenvolver ideias e dar vida aos seus projetos.</p>
+    <button onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">
+      Explorar ferramentas ↓
+    </button>
+    <input class="search" id="search" placeholder="🔎 Procurar uma ferramenta..." oninput="filterTools()">
+  </section>
+
+  <main>
+    <h2 class="section-title" id="tools">Explore as ferramentas</h2>
+    <p class="muted">Escolha uma ferramenta e comece a criar.</p>
+
+    <div class="grid" id="grid">
+      <article class="card" data-name="textos escrita legenda">
+        <div class="emoji">✍️</div>
+        <h3>Gerador de textos</h3>
+        <p>Crie rascunhos para publicações, projetos e apresentações.</p>
+        <button onclick="openTool('text')">Experimentar</button>
+      </article>
+
+      <article class="card" data-name="ideias negócios criatividade">
+        <div class="emoji">💡</div>
+        <h3>Gerador de ideias</h3>
+        <p>Transforme seus interesses em ideias para novos projetos.</p>
+        <button onclick="openTool('ideas')">Experimentar</button>
+      </article>
+
+      <article class="card" data-name="produtos loja descrição vendas">
+        <div class="emoji">🛍️</div>
+        <h3>Descrições de produtos</h3>
+        <p>Prepare descrições claras para produtos de uma loja.</p>
+        <button onclick="openTool('product')">Experimentar</button>
+      </article>
+
+      <article class="card" data-name="redes sociais instagram posts">
+        <div class="emoji">📱</div>
+        <h3>Ideias para posts</h3>
+        <p>Planeje conteúdos para suas redes sociais.</p>
+        <button onclick="openTool('social')">Experimentar</button>
+      </article>
+    </div>
+
+    <section class="tool hidden" id="tool">
+      <h2 id="toolTitle">Sua ferramenta</h2>
+      <p class="muted" id="toolDescription">Escreva sua ideia abaixo.</p>
+      <textarea id="prompt" placeholder="Digite sua ideia aqui..."></textarea>
+      <button onclick="generate()">Gerar resultado</button>
+      <div id="result" aria-live="polite"></div>
+      <button id="copy" class="hidden" style="margin-top:15px" onclick="copyResult()">Copiar resultado</button>
+    </section>
+  </main>
+
+  <footer>
+    AI Tools Hub © 2026 · Criado para transformar ideias em projetos.
+    <p>Esta versão funciona sem conexão com uma API de IA. Os resultados são modelos locais.</p>
+  </footer>
+
+  <script>
+    let currentTool = 'text';
+    let output = '';
+
+    const config = {
+      text: {
+        title: '✍️ Gerador de textos',
+        description: 'Descreva o texto que deseja preparar.',
+        placeholder: 'Ex.: texto de apresentação de um projeto de programação'
+      },
+      ideas: {
+        title: '💡 Gerador de ideias',
+        description: 'Conte o assunto ou a área que te interessa.',
+        placeholder: 'Ex.: ideias para um projeto de tecnologia'
+      },
+      product: {
+        title: '🛍️ Descrição de produtos',
+        description: 'Informe o produto e suas características.',
+        placeholder: 'Ex.: suporte de celular ajustável'
+      },
+      social: {
+        title: '📱 Ideias para posts',
+        description: 'Diga o tema da publicação.',
+        placeholder: 'Ex.: dicas de programação para iniciantes'
+      }
+    };
+
+    function openTool(type) {
+      currentTool = type;
+      const item = config[type];
+      document.getElementById('toolTitle').textContent = item.title;
+      document.getElementById('toolDescription').textContent = item.description;
+      document.getElementById('prompt').placeholder = item.placeholder;
+      document.getElementById('prompt').value = '';
+      document.getElementById('result').textContent = '';
+      document.getElementById('copy').classList.add('hidden');
+      document.getElementById('tool').classList.remove('hidden');
+      document.getElementById('tool').scrollIntoView({behavior:'smooth'});
+    }
+
+    function generate() {
+      const input = document.getElementById('prompt').value.trim();
+      if (!input) {
+        document.getElementById('result').textContent = 'Digite uma ideia primeiro!';
+        return;
+      }
+
+      const templates = {
+        text: () => `APRESENTAÇÃO: ${input}\n\nIntrodução\nApresente o assunto e explique por que ele é importante.\n\nDesenvolvimento\nOrganize as principais informações sobre ${input} em parágrafos claros, com exemplos práticos.\n\nConclusão\nFinalize resumindo as ideias principais e sugerindo o próximo passo.\n\nDica: personalize este rascunho com informações reais e seu próprio estilo.`,
+        ideas: () => `IDEIAS PARA EXPLORAR: ${input}\n\n1. Crie um projeto simples para iniciantes.\n2. Desenvolva um guia prático sobre o tema.\n3. Monte uma página com recursos úteis.\n4. Identifique um problema que as pessoas enfrentam nessa área.\n5. Crie um protótipo e peça opiniões de possíveis usuários.\n\nPRÓXIMO PASSO: escolha uma ideia, pesquise se já existe algo semelhante e teste com pessoas interessadas.`,
+        product: () => `NOME DO PRODUTO\n${input}\n\nDESCRIÇÃO\nConheça ${input}, uma opção para quem procura praticidade no dia a dia.\n\nDESTAQUES\n• Descrição clara do produto.\n• Informações sobre uso e características.\n• Detalhes a confirmar antes da compra.\n\nAntes de publicar, preencha as especificações reais. Não anuncie características que não foram verificadas.`,
+        social: () => `IDEIA DE PUBLICAÇÃO: ${input}\n\nABERTURA\nVocê já conhece este assunto? 👀\n\nCONTEÚDO\nCompartilhe uma dica prática sobre ${input}, explique como ela funciona e mostre um exemplo simples.\n\nCHAMADA\nO que você gostaria de aprender a seguir? Conte nos comentários!\n\nHASHTAGS\n#tecnologia #aprendizado #criatividade`
+      };
+
+      output = templates[currentTool]();
+      document.getElementById('result').textContent = output;
+      document.getElementById('copy').classList.remove('hidden');
+    }
+
+    async function copyResult() {
+      try {
+        await navigator.clipboard.writeText(output);
+        document.getElementById('copy').textContent = 'Copiado! ✓';
+      } catch (e) {
+        document.getElementById('result').textContent =
+          output + '\n\nSelecione o texto acima e copie manualmente.';
+      }
+    }
+
+    function filterTools() {
+      const query = document.getElementById('search').value.toLowerCase();
+      document.querySelectorAll('.card').forEach(card => {
+        card.style.display = card.dataset.name.includes(query) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
