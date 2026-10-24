@@ -1,320 +1,86 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#09090f">
-  <meta name="description" content="AI Tools Hub: ferramentas gratuitas para criar, estudar e empreender com inteligência artificial.">
-  <title>AI Tools Hub | Seu poder com IA</title>
-  <style>
-    * { box-sizing: border-box; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0d14">
+<meta name="description" content="Descubra ferramentas de inteligência artificial para estudar, criar, programar e trabalhar.">
+<title>AI Tools Hub — Seu espaço de IA</title>
+<style>
+:root{color-scheme:dark;--bg:#090b11;--panel:#111521;--panel2:#171c2a;--line:#282e40;--text:#f4f6ff;--muted:#a1a9bd;--purple:#9a7bff;--cyan:#58e1e8;--green:#72e6b1;--shadow:0 18px 50px #0005}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 15% -10%,#33215b66,transparent 38%),radial-gradient(ellipse at 95% 0%,#123d4a55,transparent 32%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.wrap{width:min(1180px,calc(100% - 32px));margin:auto}
+header{padding:18px 0;border-bottom:1px solid #ffffff10;background:#090b11b8;backdrop-filter:blur(16px);position:sticky;top:0;z-index:10}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:11px;font-weight:850;letter-spacing:-.6px;font-size:19px}.brandmark{width:38px;height:38px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(135deg,var(--purple),#5de4e4);color:#090b11;font-size:21px;box-shadow:0 7px 24px #9a7bff35}.brand span em{font-style:normal;color:var(--cyan)}.navtag{color:var(--muted);font-size:12px;border:1px solid var(--line);padding:7px 10px;border-radius:99px}
+.hero{padding:64px 0 35px;text-align:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#c6b9ff;border:1px solid #9a7bff44;background:#9a7bff13;padding:7px 12px;border-radius:99px;font-size:12px;font-weight:750;letter-spacing:.4px}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}h1{font-size:clamp(34px,6vw,64px);line-height:1.03;letter-spacing:-2.5px;margin:22px auto 15px;max-width:850px}h1 .gradient{background:linear-gradient(90deg,#b8a5ff,#6de8e6);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:620px;margin:0 auto;color:var(--muted);font-size:16px}.searchbox{margin:28px auto 0;max-width:690px;display:flex;gap:10px;padding:8px;background:#121622;border:1px solid #34394c;border-radius:17px;box-shadow:var(--shadow)}.searchicon{align-self:center;padding-left:9px;color:var(--muted);font-size:20px}.searchbox input{width:100%;min-width:0;background:transparent;border:0;outline:0;color:var(--text);padding:10px 0}.searchbox input::placeholder{color:#777f94}.clearbtn{background:#252b3b;color:#dce1f1;border:0;border-radius:11px;padding:0 14px}.stats{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:22px;color:var(--muted);font-size:13px}.stats strong{color:var(--text);font-size:15px}
+main{padding:18px 0 70px}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:12px 0 20px;flex-wrap:wrap}.filters{display:flex;gap:8px;overflow-x:auto;padding:2px 0 8px;max-width:100%;scrollbar-width:thin}.chip{white-space:nowrap;border:1px solid var(--line);color:#b8bfd1;background:#111521;padding:9px 13px;border-radius:99px;font-size:13px;transition:.18s}.chip:hover,.chip.active{border-color:#9a7bff99;color:#fff;background:#8d71f526}.chip.active{box-shadow:inset 0 0 0 1px #9a7bff35}.toolright{display:flex;align-items:center;gap:9px}.select{background:#111521;color:var(--text);border:1px solid var(--line);padding:10px 12px;border-radius:11px;max-width:170px}.favtoggle{border:1px solid var(--line);border-radius:11px;background:#111521;color:#dce1f1;padding:10px 12px}.favtoggle.active{background:#462033;border-color:#a44770;color:#ffb6d2}
+.sectionline{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:24px 0 14px}.sectionline h2{font-size:20px;letter-spacing:-.5px;margin:0}.sectionline p{margin:4px 0 0;color:var(--muted);font-size:13px}.resultcount{font-size:12px;color:var(--muted);white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{position:relative;min-width:0;border:1px solid var(--line);background:linear-gradient(155deg,#151a28,#10131c 75%);border-radius:18px;padding:17px;display:flex;flex-direction:column;min-height:218px;transition:transform .2s,border-color .2s,box-shadow .2s;overflow:hidden}.card:before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:1px;background:linear-gradient(90deg,transparent,#9a7bff66,transparent);opacity:0;transition:.2s}.card:hover{transform:translateY(-3px);border-color:#555078;box-shadow:0 14px 36px #0003}.card:hover:before{opacity:1}.cardtop{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:14px;background:#202638;border:1px solid #ffffff12;display:grid;place-items:center;flex-shrink:0;overflow:hidden;font-size:22px;font-weight:800;color:#d9d1ff}.logo img{width:100%;height:100%;object-fit:contain;padding:7px;background:#fff;border-radius:12px}.toolname{font-size:16px;font-weight:800;letter-spacing:-.25px;line-height:1.2}.maker{font-size:12px;color:var(--muted);margin-top:4px}.heart{margin-left:auto;border:1px solid transparent;background:transparent;color:#727b91;font-size:21px;line-height:1;padding:6px;border-radius:10px;flex-shrink:0}.heart:hover{background:#ffffff0a;color:#ff9ec2}.heart.saved{color:#ff79ac}.desc{color:#b2bacd;font-size:13px;line-height:1.55;margin:15px 0 14px;flex:1}.tags{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-bottom:15px}.tag{font-size:10px;font-weight:750;letter-spacing:.25px;border-radius:6px;padding:4px 7px;background:#ffffff09;color:#c6ccda}.tag.free{color:#8de9bc;background:#56d99b12}.tag.paid{color:#e8c58b;background:#e8b65b12}.cardbottom{display:flex;align-items:center;justify-content:space-between;gap:10px}.catlabel{font-size:11px;color:#9da6bd}.visit{font-size:12px;font-weight:800;padding:9px 12px;border-radius:10px;background:#e7e4ff;color:#161322;transition:.15s;white-space:nowrap}.visit:hover{background:#fff;transform:translateY(-1px)}.empty{grid-column:1/-1;text-align:center;border:1px dashed #3b4155;border-radius:18px;padding:45px 15px;color:var(--muted)}.empty b{display:block;color:var(--text);font-size:18px;margin-bottom:6px}.notice{margin-top:24px;padding:14px 16px;border:1px solid #ffffff12;border-radius:13px;color:#969fb4;font-size:12px;line-height:1.65;background:#ffffff04}.notice strong{color:#dfe4f3}footer{border-top:1px solid #ffffff12;padding:24px 0 32px;color:#8c95aa;font-size:12px}.footerin{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.footerbrand{color:#dfe3f1;font-weight:800}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:48px}.navtag{display:none}}
+@media(max-width:560px){.wrap{width:min(100% - 22px,1180px)}header{padding:12px 0}.brand{font-size:17px}.brandmark{width:35px;height:35px}.hero{padding:40px 0 24px}h1{letter-spacing:-1.6px;font-size:38px}.hero p{font-size:14px}.searchbox{margin-top:22px}.stats{gap:16px}.toolbar{align-items:stretch}.filters{width:100%;order:2}.toolright{width:100%;justify-content:space-between}.select{flex:1;max-width:none}.grid{grid-template-columns:1fr;gap:11px}.card{min-height:0;padding:15px}.desc{margin:12px 0}.sectionline h2{font-size:18px}.sectionline{margin-top:18px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      background: #09090f;
-      color: #f5f5ff;
-    }
-
-    header {
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #242435;
-    }
-
-    .logo {
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    .logo span { color: #a78bfa; }
-
-    .hero {
-      padding: 65px 20px 45px;
-      text-align: center;
-      background: radial-gradient(ellipse at top, #29204d, #09090f 70%);
-    }
-
-    .tag {
-      color: #c4b5fd;
-      border: 1px solid #55417d;
-      border-radius: 30px;
-      padding: 8px 13px;
-      font-size: 12px;
-    }
-
-    h1 {
-      font-size: clamp(34px, 8vw, 55px);
-      line-height: 1.1;
-      margin: 25px auto 16px;
-      max-width: 700px;
-    }
-
-    h1 span {
-      color: #a78bfa;
-    }
-
-    .hero p {
-      color: #b7b6c9;
-      max-width: 520px;
-      margin: 0 auto 25px;
-      line-height: 1.7;
-    }
-
-    .search {
-      display: block;
-      width: 100%;
-      max-width: 500px;
-      margin: 25px auto 0;
-      padding: 15px;
-      border: 1px solid #38334f;
-      border-radius: 12px;
-      background: #151520;
-      color: white;
-      font-size: 16px;
-    }
-
-    main {
-      max-width: 1050px;
-      margin: auto;
-      padding: 35px 20px 60px;
-    }
-
-    .section-title {
-      font-size: 25px;
-      margin-bottom: 8px;
-    }
-
-    .muted { color: #a6a5ba; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 16px;
-      margin-top: 25px;
-    }
-
-    .card {
-      padding: 23px;
-      background: #13131e;
-      border: 1px solid #29293a;
-      border-radius: 16px;
-      transition: transform .2s, border-color .2s;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      border-color: #8b5cf6;
-    }
-
-    .emoji { font-size: 32px; }
-
-    .card h3 { margin-bottom: 8px; }
-
-    .card p {
-      color: #aaa9bd;
-      font-size: 14px;
-      line-height: 1.6;
-      min-height: 45px;
-    }
-
-    button {
-      border: 0;
-      border-radius: 9px;
-      padding: 12px 16px;
-      background: #8b5cf6;
-      color: white;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    button:hover { background: #7041dc; }
-
-    .tool {
-      margin-top: 35px;
-      padding: 24px;
-      border: 1px solid #39304f;
-      border-radius: 16px;
-      background: #15131f;
-    }
-
-    textarea, select {
-      width: 100%;
-      padding: 13px;
-      margin: 10px 0;
-      background: #0d0d16;
-      color: white;
-      border: 1px solid #38334f;
-      border-radius: 9px;
-      font: inherit;
-    }
-
-    textarea { min-height: 100px; resize: vertical; }
-
-    #result {
-      white-space: pre-wrap;
-      overflow-wrap: anywhere;
-      line-height: 1.7;
-      margin-top: 18px;
-      color: #e3ddff;
-    }
-
-    .hidden { display: none; }
-
-    footer {
-      text-align: center;
-      padding: 25px;
-      border-top: 1px solid #242435;
-      color: #89889e;
-      font-size: 13px;
-    }
-  </style>
+/* AI Tools Hub features */
+.feature-nav{display:flex;gap:8px;overflow-x:auto;padding:13px 0 5px;scrollbar-width:thin}
+.feature-nav button{white-space:nowrap;border:1px solid var(--line);background:#111521;color:#d5d9e8;border-radius:10px;padding:9px 12px;font-size:12px;font-weight:750}
+.feature-nav button:hover,.feature-nav button.active{border-color:#9a7bff;color:#fff;background:#8d71f526}
+.hub-panel{margin:22px 0 26px;border:1px solid #34304f;border-radius:18px;padding:18px;background:linear-gradient(135deg,#171329,#111923 75%);}
+.panel-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap;margin-bottom:15px}.panel-head h2{margin:0;font-size:21px}.panel-head p{margin:5px 0 0;color:var(--muted);font-size:13px}
+.feature-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.feature-box{border:1px solid var(--line);border-radius:14px;background:#0e121d;padding:14px;min-width:0}.feature-box h3{margin:0 0 6px;font-size:15px}.feature-box p{color:var(--muted);font-size:12px;margin:0 0 12px}.feature-box input,.feature-box select,.feature-box textarea{width:100%;background:#151a28;border:1px solid #34394c;border-radius:9px;color:var(--text);padding:10px;min-width:0;margin:4px 0 8px}.feature-box button,.mini-action{border:1px solid #4a416e;background:#29213f;color:#eee9ff;padding:9px 11px;border-radius:9px;font-size:12px;font-weight:750}.feature-box button:hover,.mini-action:hover{background:#3a2e5d}.feature-list{display:grid;gap:8px;margin-top:10px}.feature-item{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid #292e40;background:#141927;border-radius:10px;padding:10px;font-size:13px}.feature-item small{display:block;color:var(--muted);font-size:11px}.item-actions{display:flex;gap:6px;flex-wrap:wrap}.tool-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.tool-actions button{border:1px solid #38334e;background:#211c32;color:#ddd6ff;border-radius:8px;padding:7px 9px;font-size:11px;font-weight:750}.tool-actions button.selected{border-color:#9a7bff;background:#47356f}.status-note{font-size:12px;color:#c5cbe0;background:#ffffff06;border:1px solid #ffffff12;padding:10px 12px;border-radius:10px;margin-top:10px;line-height:1.55}.status-note strong{color:#f4f6ff}.hub-price{font-size:28px;font-weight:850;letter-spacing:-1px;margin:7px 0}.hub-price span{font-size:12px;color:var(--muted);font-weight:500;letter-spacing:0}.workflow-steps{display:grid;gap:9px}.workflow-step{display:flex;gap:10px;align-items:flex-start;padding:10px;background:#141927;border:1px solid var(--line);border-radius:10px}.step-number{display:grid;place-items:center;width:26px;height:26px;border-radius:8px;background:#342852;color:#d8caff;flex-shrink:0;font-weight:800}.compare-table{width:100%;border-collapse:collapse;font-size:12px}.compare-table th,.compare-table td{text-align:left;padding:9px;border-bottom:1px solid var(--line);vertical-align:top}.compare-table th{color:#c9baff}.hide{display:none!important}.assistant-answer{white-space:pre-wrap;line-height:1.65;color:#dbe1f2}
+@media(max-width:560px){.feature-grid{grid-template-columns:1fr}.hub-panel{padding:13px}.panel-head h2{font-size:19px}.compare-table{font-size:11px}.compare-table th,.compare-table td{padding:7px}}
+</style>
 </head>
 <body>
-
-  <header>
-    <div class="logo">AI Tools <span>Hub.</span></div>
-    <span style="font-size:12px;color:#c4b5fd">VERSÃO 1.0</span>
-  </header>
-
-  <section class="hero">
-    <span class="tag">✦ SUA CENTRAL DE CRIATIVIDADE</span>
-    <h1>Suas ideias.<br>Seu futuro com <span>IA.</span></h1>
-    <p>Descubra ferramentas para criar conteúdo, desenvolver ideias e dar vida aos seus projetos.</p>
-    <button onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">
-      Explorar ferramentas ↓
-    </button>
-    <input class="search" id="search" placeholder="🔎 Procurar uma ferramenta..." oninput="filterTools()">
+<header><div class="wrap nav"><a class="brand" href="#" aria-label="AI Tools Hub início"><span class="brandmark">✳</span><span>AI Tools <em>Hub</em></span></a><span class="navtag">UM UNIVERSO DE POSSIBILIDADES ✦</span></div></header>
+<div class="wrap"><nav class="feature-nav" aria-label="Recursos do Hub">
+<button type="button" data-panel="collections">▤ Coleções</button><button type="button" data-panel="compare">⇄ Comparar</button><button type="button" data-panel="workflows">⌘ Workflows</button><button type="button" data-panel="accounts">♙ Conta</button><button type="button" data-panel="assistant">✦ Assistente</button>
+</nav></div>
+<section class="hero wrap">
+  <div class="eyebrow"><span class="dot"></span> SEU CENTRO DE FERRAMENTAS DE IA</div>
+  <h1>Encontre a IA certa<br>para <span class="gradient">toda ideia.</span></h1>
+  <p>Explore ferramentas para criar, aprender, programar e trabalhar. Tudo organizado em um só lugar.</p>
+  <div class="searchbox"><span class="searchicon">⌕</span><input id="search" type="search" placeholder="Pesquise por nome, categoria ou tarefa..." autocomplete="off" aria-label="Pesquisar ferramentas"><button id="clear" class="clearbtn" type="button">Limpar</button></div>
+  <div class="stats"><span><strong id="totalCount">0</strong> ferramentas</span><span><strong id="categoryCount">0</strong> categorias</span><span><strong id="favoriteCount">0</strong> favoritos</span></div>
+</section>
+<main class="wrap">
+  <div class="toolbar"><div class="filters" id="filters" aria-label="Filtrar por categoria"></div><div class="toolright"><select id="sort" class="select" aria-label="Ordenar ferramentas"><option value="featured">Em destaque</option><option value="az">Nome: A–Z</option></select><button id="favoritesOnly" class="favtoggle" type="button" aria-pressed="false">♡ Favoritos</button></div></div>
+  <div class="sectionline"><div><h2 id="heading">Explore as ferramentas</h2><p id="subheading">Escolha uma ferramenta para abrir o site oficial.</p></div><span class="resultcount" id="resultCount"></span></div>
+  <div id="grid" class="grid" aria-live="polite"></div>
+  <section id="featureArea" class="hub-panel hide" aria-live="polite">
+    <div class="panel-head"><div><h2 id="featureTitle">Recursos do Hub</h2><p id="featureSubtitle">Ferramentas extras para organizar seu trabalho.</p></div><button type="button" id="closeFeature" class="mini-action">Fechar ×</button></div>
+    <div id="featureContent"></div>
   </section>
-
-  <main>
-    <h2 class="section-title" id="tools">Explore as ferramentas</h2>
-    <p class="muted">Escolha uma ferramenta e comece a criar.</p>
-
-    <div class="grid" id="grid">
-      <article class="card" data-name="textos escrita legenda">
-        <div class="emoji">✍️</div>
-        <h3>Gerador de textos</h3>
-        <p>Crie rascunhos para publicações, projetos e apresentações.</p>
-        <button onclick="openTool('text')">Experimentar</button>
-      </article>
-
-      <article class="card" data-name="ideias negócios criatividade">
-        <div class="emoji">💡</div>
-        <h3>Gerador de ideias</h3>
-        <p>Transforme seus interesses em ideias para novos projetos.</p>
-        <button onclick="openTool('ideas')">Experimentar</button>
-      </article>
-
-      <article class="card" data-name="produtos loja descrição vendas">
-        <div class="emoji">🛍️</div>
-        <h3>Descrições de produtos</h3>
-        <p>Prepare descrições claras para produtos de uma loja.</p>
-        <button onclick="openTool('product')">Experimentar</button>
-      </article>
-
-      <article class="card" data-name="redes sociais instagram posts">
-        <div class="emoji">📱</div>
-        <h3>Ideias para posts</h3>
-        <p>Planeje conteúdos para suas redes sociais.</p>
-        <button onclick="openTool('social')">Experimentar</button>
-      </article>
-    </div>
-
-    <section class="tool hidden" id="tool">
-      <h2 id="toolTitle">Sua ferramenta</h2>
-      <p class="muted" id="toolDescription">Escreva sua ideia abaixo.</p>
-      <textarea id="prompt" placeholder="Digite sua ideia aqui..."></textarea>
-      <button onclick="generate()">Gerar resultado</button>
-      <div id="result" aria-live="polite"></div>
-      <button id="copy" class="hidden" style="margin-top:15px" onclick="copyResult()">Copiar resultado</button>
-    </section>
-  </main>
-
-  <footer>
-    AI Tools Hub © 2026 · Criado para transformar ideias em projetos.
-    <p>Esta versão funciona sem conexão com uma API de IA. Os resultados são modelos locais.</p>
-  </footer>
-
-  <script>
-    let currentTool = 'text';
-    let output = '';
-
-    const config = {
-      text: {
-        title: '✍️ Gerador de textos',
-        description: 'Descreva o texto que deseja preparar.',
-        placeholder: 'Ex.: texto de apresentação de um projeto de programação'
-      },
-      ideas: {
-        title: '💡 Gerador de ideias',
-        description: 'Conte o assunto ou a área que te interessa.',
-        placeholder: 'Ex.: ideias para um projeto de tecnologia'
-      },
-      product: {
-        title: '🛍️ Descrição de produtos',
-        description: 'Informe o produto e suas características.',
-        placeholder: 'Ex.: suporte de celular ajustável'
-      },
-      social: {
-        title: '📱 Ideias para posts',
-        description: 'Diga o tema da publicação.',
-        placeholder: 'Ex.: dicas de programação para iniciantes'
-      }
-    };
-
-    function openTool(type) {
-      currentTool = type;
-      const item = config[type];
-      document.getElementById('toolTitle').textContent = item.title;
-      document.getElementById('toolDescription').textContent = item.description;
-      document.getElementById('prompt').placeholder = item.placeholder;
-      document.getElementById('prompt').value = '';
-      document.getElementById('result').textContent = '';
-      document.getElementById('copy').classList.add('hidden');
-      document.getElementById('tool').classList.remove('hidden');
-      document.getElementById('tool').scrollIntoView({behavior:'smooth'});
-    }
-
-    function generate() {
-      const input = document.getElementById('prompt').value.trim();
-      if (!input) {
-        document.getElementById('result').textContent = 'Digite uma ideia primeiro!';
-        return;
-      }
-
-      const templates = {
-        text: () => `APRESENTAÇÃO: ${input}\n\nIntrodução\nApresente o assunto e explique por que ele é importante.\n\nDesenvolvimento\nOrganize as principais informações sobre ${input} em parágrafos claros, com exemplos práticos.\n\nConclusão\nFinalize resumindo as ideias principais e sugerindo o próximo passo.\n\nDica: personalize este rascunho com informações reais e seu próprio estilo.`,
-        ideas: () => `IDEIAS PARA EXPLORAR: ${input}\n\n1. Crie um projeto simples para iniciantes.\n2. Desenvolva um guia prático sobre o tema.\n3. Monte uma página com recursos úteis.\n4. Identifique um problema que as pessoas enfrentam nessa área.\n5. Crie um protótipo e peça opiniões de possíveis usuários.\n\nPRÓXIMO PASSO: escolha uma ideia, pesquise se já existe algo semelhante e teste com pessoas interessadas.`,
-        product: () => `NOME DO PRODUTO\n${input}\n\nDESCRIÇÃO\nConheça ${input}, uma opção para quem procura praticidade no dia a dia.\n\nDESTAQUES\n• Descrição clara do produto.\n• Informações sobre uso e características.\n• Detalhes a confirmar antes da compra.\n\nAntes de publicar, preencha as especificações reais. Não anuncie características que não foram verificadas.`,
-        social: () => `IDEIA DE PUBLICAÇÃO: ${input}\n\nABERTURA\nVocê já conhece este assunto? 👀\n\nCONTEÚDO\nCompartilhe uma dica prática sobre ${input}, explique como ela funciona e mostre um exemplo simples.\n\nCHAMADA\nO que você gostaria de aprender a seguir? Conte nos comentários!\n\nHASHTAGS\n#tecnologia #aprendizado #criatividade`
-      };
-
-      output = templates[currentTool]();
-      document.getElementById('result').textContent = output;
-      document.getElementById('copy').classList.remove('hidden');
-    }
-
-    async function copyResult() {
-      try {
-        await navigator.clipboard.writeText(output);
-        document.getElementById('copy').textContent = 'Copiado! ✓';
-      } catch (e) {
-        document.getElementById('result').textContent =
-          output + '\n\nSelecione o texto acima e copie manualmente.';
-      }
-    }
-
-    function filterTools() {
-      const query = document.getElementById('search').value.toLowerCase();
-      document.querySelectorAll('.card').forEach(card => {
-        card.style.display = card.dataset.name.includes(query) ? '' : 'none';
-      });
-    }
-  </script>
-</body>
-</html>
+  <div class="notice"><strong>Sobre os planos:</strong> A disponibilidade, os limites e os preços variam entre serviços e podem mudar. Confira as condições no site oficial. O catálogo é um diretório independente; os logotipos são carregados de favicons públicos e uma inicial aparece quando não há imagem disponível.</div>
+</main>
+<footer><div class="wrap footerin"><span class="footerbrand">✳ AI Tools Hub</span><span>Feito para explorar. Links levam aos sites das ferramentas.</span><span>© <span id="year"></span> AI Tools Hub</span></div></footer>
+<script>
+const tools = [
+{name:"ChatGPT",cat:"Assistentes",maker:"OpenAI",desc:"Converse, escreva, estude, analise arquivos e explore ideias.",url:"https://chatgpt.com/",domain:"chatgpt.com",plan:"free",featured:1,icon:"✳"},
+{name:"Claude",cat:"Assistentes",maker:"Anthropic",desc:"Assistente para escrita, análise, raciocínio e programação.",url:"https://claude.ai/",domain:"claude.ai",plan:"free",featured:1,icon:"✺"},
+{name:"Google Gemini",cat:"Assistentes",maker:"Google",desc:"Assistente multimodal para pesquisar, planejar e criar.",url:"https://gemini.google.com/",domain:"gemini.google.com",plan:"free",featured:1,icon:"✦"},
+{name:"Microsoft Copilot",cat:"Assistentes",maker:"Microsoft",desc:"Ajuda com perguntas, escrita, ideias e tarefas do dia a dia.",url:"https://copilot.microsoft.com/",domain:"copilot.microsoft.com",plan:"free",featured:1,icon:"◉"},
+{name:"DeepSeek",cat:"Assistentes",maker:"DeepSeek",desc:"Chat de IA para perguntas, explicações, raciocínio e código.",url:"https://chat.deepseek.com/",domain:"deepseek.com",plan:"free",featured:1,icon:"深"},
+{name:"Perplexity",cat:"Pesquisa",maker:"Perplexity AI",desc:"Pesquisa na web com respostas acompanhadas de fontes.",url:"https://www.perplexity.ai/",domain:"perplexity.ai",plan:"free",featured:1,icon:"◈"},
+{name:"Grok",cat:"Assistentes",maker:"xAI",desc:"Assistente de IA para perguntas, ideias e pesquisa.",url:"https://grok.com/",domain:"grok.com",plan:"free",featured:0,icon:"𝕏"},
+{name:"Le Chat",cat:"Assistentes",maker:"Mistral AI",desc:"Assistente para conversar, escrever e explorar informações.",url:"https://chat.mistral.ai/",domain:"mistral.ai",plan:"free",featured:0,icon:"M"},
+{name:"Poe",cat:"Assistentes",maker:"Quora",desc:"Acesse diferentes bots e modelos de IA em uma plataforma.",url:"https://poe.com/",domain:"poe.com",plan:"free",featured:0,icon:"P"},
+{name:"HuggingChat",cat:"Assistentes",maker:"Hugging Face",desc:"Converse com modelos abertos e explore IA da comunidade.",url:"https://huggingface.co/chat/",domain:"huggingface.co",plan:"free",featured:0,icon:"🤗"},
+{name:"Meta AI",cat:"Assistentes",maker:"Meta",desc:"Assistente para perguntas, ideias e criação de conteúdo.",url:"https://www.meta.ai/",domain:"meta.ai",plan:"free",featured:0,icon:"∞"},
+{name:"Qwen Chat",cat:"Assistentes",maker:"Alibaba",desc:"Assistente de IA para texto, raciocínio e tarefas variadas.",url:"https://chat.qwen.ai/",domain:"qwen.ai",plan:"free",featured:0,icon:"Q"},
+{name:"You.com",cat:"Pesquisa",maker:"You.com",desc:"Pesquisa e respostas com recursos de inteligência artificial.",url:"https://you.com/",domain:"you.com",plan:"free",featured:0,icon:"Y"},
+{name:"Phind",cat:"Pesquisa",maker:"Phind",desc:"Pesquisa voltada a desenvolvedores e dúvidas técnicas.",url:"https://www.phind.com/",domain:"phind.com",plan:"free",featured:0,icon:"⌘"},
+{name:"Consensus",cat:"Pesquisa",maker:"Consensus",desc:"Explore respostas a perguntas usando literatura científica.",url:"https://consensus.app/",domain:"consensus.app",plan:"free",featured:0,icon:"◎"},
+{name:"Elicit",cat:"Pesquisa",maker:"Elicit",desc:"Apoia revisões de literatura e pesquisa acadêmica.",url:"https://elicit.com/",domain:"elicit.com",plan:"free",featured:0,icon:"E"},
+{name:"NotebookLM",cat:"Estudos",maker:"Google",desc:"Estude suas fontes com resumos, perguntas e guias de áudio.",url:"https://notebooklm.google.com/",domain:"notebooklm.google.com",plan:"free",featured:1,icon:"▤"},
+{name:"Khanmigo",cat:"Estudos",maker:"Khan Academy",desc:"Tutor educacional de IA para apoiar a aprendizagem.",url:"https://www.khanacademy.org/khan-labs",domain:"khanacademy.org",plan:"paid",featured:0,icon:"K"},
+{name:"Quizlet",cat:"Estudos",maker:"Quizlet",desc:"Crie cartões de estudo e pratique com recursos inteligentes.",url:"https://quizlet.com/",domain:"quizlet.com",plan:"free",featured:0,icon:"▣"},
+{name:"Photomath",cat:"Estudos",maker:"Google",desc:"Aprenda matemática acompanhando explicações passo a passo.",url:"https://photomath.com/",domain:"photomath.com",plan:"free",featured:0,icon:"∑"},
+{name:"Wolfram Alpha",cat:"Estudos",maker:"Wolfram",desc:"Calcule e explore questões de matemática e ciências.",url:"https://www.wolframalpha.com/",domain:"wolframalpha.com",plan:"free",featured:0,icon:"W"},
+{name:"ChatPDF",cat:"Estudos",maker:"ChatPDF",desc:"Faça perguntas sobre documentos PDF e encontre informações.",url:"https://www.chatpdf.com/",domain:"chatpdf.com",plan:"free",featured:0,icon:"▧"},
+{name:"Gamma",cat:"Design",maker:"Gamma",desc:"Crie apresentações, páginas e documentos visuais com IA.",url:"https://gamma.app/",domain:"gamma.app",plan:"free",featured:1,icon:"γ"},
+{name:"Canva Magic Studio",cat:"Design",maker:"Canva",desc:"Ferramentas de IA para designs, apresentações e conteúdo.",url:"https://www.canva.com/magic-studio/",domain:"canva.com",plan:"free",featured:1,icon:"C"},
+{name:"Adobe Express",cat:"Design",maker:"Adobe",desc:"Crie conteúdos visuais e edite designs com recursos de IA.",url:"https://www.adobe.com/express/",domain:"adobe.com",plan:"free",featured:0,icon:"A"},
+{name:"Microsoft Designer",cat:"Design",maker:"Microsoft",desc:"Crie designs e imagens para projetos e redes sociais.",url:"https://designer.microsoft.com/",domain:"designer.microsoft.com",plan:"free",featured:0,icon:"D"},
+{name:"Napkin AI",cat:"Design",maker:"Napkin",desc:"Transforme ideias e textos em diagramas e visuais.",url:"https://www.napkin.ai/",domain:"napkin.ai",plan:"free",featured:0,icon:"N"},
+{name:"Ideogram",cat:"Imagens",maker:"Ideogram",desc:"Gere imagens e artes com atenção especial a texto visual.",url:"https://ideogram.ai/",domain:"ideogram.ai",plan:"free",featured:1,icon:"I"},
+{name:"Leonardo AI",cat:"Imagens",maker:"Leonardo",desc:"Crie imagens, ilustrações e recursos visuais com IA.",url:"https://leonardo.ai/",domain:"leonardo.ai",plan:"free",featured:1,icon:"L"},
+{name:"Adobe Firefly",cat:"Imagens",maker:"Adobe",desc:"Geração e edição de imagens com ferramentas criativas.",url:"https://firefly
